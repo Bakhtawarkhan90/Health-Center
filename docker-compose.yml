@@ -1,6 +1,0 @@
-version : "3.3"
-services :
-  web :
-     image : bakhtawar375/health-web:latest
-     ports :
-         - "8000:80"
