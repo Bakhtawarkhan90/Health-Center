@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: healthy-pod
+  labels:
+     web: health
+spec:
+  containers:
+    - name: medical-cnt
+      image: bakhtawar375/health-web:latest
+      ports:
+        - containerPort: 80

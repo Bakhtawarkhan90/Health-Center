@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: health-svc
+
+spec:
+   type: NodePort
+   selectors: 
+     web: health
+   ports:
+    -  protocol: TCP
+       targetport: 80  # container port
+       Port: 8000      # internal service port
+       NodePort: 30005 # exposing to world 
+
