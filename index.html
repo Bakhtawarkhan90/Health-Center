@@ -177,7 +177,7 @@ http://www.tooplate.com/view/2098-health
                               <img src="images/team-image1.jpg" class="img-responsive" alt="">
 
                                    <div class="team-info">
-                                        <h3>Khushboo</h3>
+                                        <h3>Kabir</h3>
                                         <p>General Principal</p>
                                         <div class="team-contact-info">
                                              <p><i class="fa fa-phone"></i> 010-020-0120</p>
@@ -197,7 +197,7 @@ http://www.tooplate.com/view/2098-health
                               <img src="images/team-image2.jpg" class="img-responsive" alt="">
 
                                    <div class="team-info">
-                                        <h3>Mansi</h3>
+                                        <h3>Mansih</h3>
                                         <p>Pregnancy</p>
                                         <div class="team-contact-info">
                                              <p><i class="fa fa-phone"></i> 010-070-0170</p>
@@ -367,7 +367,7 @@ http://www.tooplate.com/view/2098-health
                                         <input type="tel" class="form-control" id="phone" name="phone" placeholder="Phone">
                                         <label for="Message">Additional Message</label>
                                         <textarea class="form-control" rows="5" id="message" name="message" placeholder="Message"></textarea>
-                                        <button type="submit" class="form-control" id="cf-submit" name="submit">Submit Button</button>
+                                        <button type="submit" class="form-control" onclick="submitForm()" id="cf-submit" name="submit">Submit Button</button>
                                    </div>
                               </div>
                         </form>
@@ -376,6 +376,27 @@ http://www.tooplate.com/view/2098-health
                </div>
           </div>
      </section>
+<script>
+function submitForm(){
+     let nam= document.getElementById('name').value
+     let email=document.getElementById('email').value
+     let date=document.getElementById('date').value
+     let seldept=document.getElementById('seldept').value
+     let phone=document.getElementById('phone').value
+     let message=document.getElementById('message').value
+     let dto={ 
+          username:nam,
+          UserEmailAddress:email,
+          seldate:date,
+          department:seldept,
+          number:phone,
+          msg:message
+     }
+     console.log(dto)
+     debugger;
+}
+
+</script>
 
 
      <!-- GOOGLE MAP -->
