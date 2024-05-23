@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
+     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
      <title>Health - Medical Website Template</title>
 <!--
 
@@ -177,7 +177,7 @@ http://www.tooplate.com/view/2098-health
                               <img src="images/team-image1.jpg" class="img-responsive" alt="">
 
                                    <div class="team-info">
-                                        <h3>Kabir</h3>
+                                        <h3>Khushboo</h3>
                                         <p>General Principal</p>
                                         <div class="team-contact-info">
                                              <p><i class="fa fa-phone"></i> 010-020-0120</p>
@@ -197,7 +197,7 @@ http://www.tooplate.com/view/2098-health
                               <img src="images/team-image2.jpg" class="img-responsive" alt="">
 
                                    <div class="team-info">
-                                        <h3>Mansih</h3>
+                                        <h3>Mansi</h3>
                                         <p>Pregnancy</p>
                                         <div class="team-contact-info">
                                              <p><i class="fa fa-phone"></i> 010-070-0170</p>
@@ -329,7 +329,7 @@ http://www.tooplate.com/view/2098-health
 
                     <div class="col-md-6 col-sm-6">
                          <!-- CONTACT FORM HERE -->
-                         <form id="appointment-form" role="form" method="post" action="#">
+                         <form id="appointment-form" role="form" >
 
                               <!-- SECTION TITLE -->
                               <div class="section-title wow fadeInUp" data-wow-delay="0.4s">
@@ -344,17 +344,17 @@ http://www.tooplate.com/view/2098-health
 
                                    <div class="col-md-6 col-sm-6">
                                         <label for="email">Email</label>
-                                        <input type="email" class="form-control" id="email" name="email" placeholder="Your Email">
+                                        <input id="useremail" type="email" class="form-control"  name="email" placeholder="Your Email">
                                    </div>
 
                                    <div class="col-md-6 col-sm-6">
                                         <label for="date">Select Date</label>
-                                        <input type="date" name="date" value="" class="form-control">
+                                        <input id="date" type="date" name="date" value="" class="form-control">
                                    </div>
 
                                    <div class="col-md-6 col-sm-6">
                                         <label for="select">Select Department</label>
-                                        <select class="form-control">
+                                        <select class="form-control" id="seldept">
                                              <option>General Health</option>
                                              <option>Cardiology</option>
                                              <option>Dental</option>
@@ -367,7 +367,7 @@ http://www.tooplate.com/view/2098-health
                                         <input type="tel" class="form-control" id="phone" name="phone" placeholder="Phone">
                                         <label for="Message">Additional Message</label>
                                         <textarea class="form-control" rows="5" id="message" name="message" placeholder="Message"></textarea>
-                                        <button type="submit" class="form-control" onclick="submitForm()" id="cf-submit" name="submit">Submit Button</button>
+                                        <button onclick="submitForm()" type="submit" class="form-control" id="cf-submit" name="submit">Submit Button</button>
                                    </div>
                               </div>
                         </form>
@@ -376,29 +376,60 @@ http://www.tooplate.com/view/2098-health
                </div>
           </div>
      </section>
-<script>
-function submitForm(){
-     let nam= document.getElementById('name').value
-     let email=document.getElementById('email').value
-     let date=document.getElementById('date').value
-     let seldept=document.getElementById('seldept').value
-     let phone=document.getElementById('phone').value
-     let message=document.getElementById('message').value
-     let dto={ 
-          username:nam,
-          UserEmailAddress:email,
-          seldate:date,
-          department:seldept,
-          number:phone,
-          msg:message
-     }
-     console.log(dto)
-     debugger;
+            <li><a href="#" class="fa fa-instagram"></a></li>
+                              </ul>
+                         </div>
+                    </div>
+     <script>
+     const submitButton = document.getElementById('submit-button');
+
+submitButton.addEventListener('click', function() {
+  submitForm();
+});
+
+function submitForm() {
+  console.log('submitForm() function called');
+
+  let name = document.getElementById('name').value;
+  let email = document.getElementById('useremail').value;
+  let date = document.getElementById('date').value;
+  let seldept = document.getElementById('seldept').value;
+  let phone = document.getElementById('phone').value;
+  let message = document.getElementById('message').value;
+
+  console.log('name:', name);
+  console.log('email:', email);
+  console.log('date:', date);
+  console.log('seldept:', seldept);
+  console.log('phone:', phone);
+  console.log('message:', message);
+
+  let dto = {
+    username: name,
+    usermail: email,
+    userdate: date,
+    department: seldept,
+    userphone: phone,
+    msg: message
+  };
+
+  console.log('dto:', dto);
+
+  $.ajax({
+    type: 'POST',
+    url: 'http://localhost:3000/endpoint',
+    data: JSON.stringify(dto),
+    contentType: 'application/json',
+    success: function(response) {
+      console.log('Data sent successfully');
+    },
+    error: function(error) {
+      console.log('Something went wrong');
+    }
+  });
 }
-
 </script>
-
-
+      
      <!-- GOOGLE MAP -->
      <section id="google-map">
      <!-- How to change your own map point
@@ -465,11 +496,7 @@ function submitForm(){
                               <ul class="social-icon">
                                    <li><a href="#" class="fa fa-facebook-square" attr="facebook icon"></a></li>
                                    <li><a href="#" class="fa fa-twitter"></a></li>
-                                   <li><a href="#" class="fa fa-instagram"></a></li>
-                              </ul>
-                         </div>
-                    </div>
-
+                       
                     <div class="col-md-12 col-sm-12 border-top">
                          <div class="col-md-4 col-sm-6">
                               <div class="copyright-text"> 
