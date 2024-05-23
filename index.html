@@ -380,56 +380,54 @@ http://www.tooplate.com/view/2098-health
                               </ul>
                          </div>
                     </div>
-     <script>
-     const submitButton = document.getElementById('submit-button');
-
-submitButton.addEventListener('click', function() {
-  submitForm();
-});
-
-function submitForm() {
-  console.log('submitForm() function called');
-
-  let name = document.getElementById('name').value;
-  let email = document.getElementById('useremail').value;
-  let date = document.getElementById('date').value;
-  let seldept = document.getElementById('seldept').value;
-  let phone = document.getElementById('phone').value;
-  let message = document.getElementById('message').value;
-
-  console.log('name:', name);
-  console.log('email:', email);
-  console.log('date:', date);
-  console.log('seldept:', seldept);
-  console.log('phone:', phone);
-  console.log('message:', message);
-
-  let dto = {
-    username: name,
-    usermail: email,
-    userdate: date,
-    department: seldept,
-    userphone: phone,
-    msg: message
-  };
-
-  console.log('dto:', dto);
-
-  $.ajax({
-    type: 'POST',
-    url: 'http://localhost:3000/endpoint',
-    data: JSON.stringify(dto),
-    contentType: 'application/json',
-    success: function(response) {
-      console.log('Data sent successfully');
-    },
-    error: function(error) {
-      console.log('Something went wrong');
-    }
-  });
-}
-</script>
-      
+                   
+                    <script>
+                         const submitButton = document.getElementById('cf-submit');
+                       
+                         submitButton.addEventListener('click', function(event) {
+                           event.preventDefault();
+                           console.log('Button clicked');
+                       
+                           submitForm();
+                         });
+                       
+                         function submitForm() {
+                           console.log('submitForm() function called');
+                       
+                           let name = document.getElementById('name').value;
+                           let email = document.getElementById('useremail').value;
+                           let date = document.getElementById('date').value;
+                           let seldept = document.getElementById('seldept').value;
+                           let phone = document.getElementById('phone').value;
+                           let message = document.getElementById('message').value;
+                       
+                           console.log('Form data:', name, email, date, seldept, phone, message);
+                       
+                           let dto = {
+                             username: name,
+                             usermail: email,
+                             userdate: date,
+                             department: seldept,
+                             userphone: phone,
+                             msg: message
+                           };
+                       
+                           console.log('DTO:', dto);
+                       
+                           $.ajax({
+                             type: 'POST',
+                             url: 'http://localhost:8000/endpoint',
+                             data: JSON.stringify(dto),
+                             contentType: 'application/json',
+                             success: function(response) {
+                               console.log('Data sent successfully:', response);
+                             },
+                             error: function(error) {
+                               console.log('Error:', error);
+                             }
+                           });
+                         }
+                       </script>
      <!-- GOOGLE MAP -->
      <section id="google-map">
      <!-- How to change your own map point
