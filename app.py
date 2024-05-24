@@ -7,7 +7,7 @@ app = Flask(__name__)
 CORS(app)
 
 # MySQL database connection settings
-host = "localhost"
+host = "172.19.0.2"
 user = "root"
 password = "qwerty"
 database = "forms"
@@ -16,6 +16,8 @@ database = "forms"
 def receive_data():
     data = request.get_json()
     print(data)  # Print to server console
+
+    cnx = None  # Initialize cnx variable
 
     try:
         # Create a MySQL connection
