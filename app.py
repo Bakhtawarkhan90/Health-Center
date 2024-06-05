@@ -1,16 +1,21 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, render_template, send_from_directory
 from flask_cors import CORS
 import mysql.connector
 from mysql.connector import Error
+import os
 
 app = Flask(__name__)
 CORS(app)
 
 # MySQL database connection settings
-host = "172.19.0.2"
+host = "mysql"
 user = "root"
 password = "qwerty"
 database = "forms"
+
+@app.route('/')
+def home():
+    return render_template('index.html')
 
 @app.route('/endpoint', methods=['POST'])
 def receive_data():
@@ -46,6 +51,11 @@ def receive_data():
     finally:
         if cnx:
             cnx.close()
+
+# Route to serve static files (CSS, JS, images)
+@app.route('/static/<path:path>')
+def send_static(path):
+    return send_from_directory('static', path)
 
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0', port=8000)
