@@ -19,5 +19,6 @@ run docker-compose up
  add DB-table in forms database
  run docker-compose up
   and acces the app on localhost:8000
-! [Screenshot 1] (./Screenshot 2024-06-07 124239.png)
 ![Screenshot 1](Screenshot%202024-06-07%20124239.png)
+![Screenshot 2](Screenshot%2024-06-07%124332.png)
+![Screenshot 3]()
