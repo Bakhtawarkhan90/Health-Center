@@ -14,10 +14,8 @@ services:
       - db_data:/var/lib/mysql
 
   web:
-    build: .
+    image: bakhtawar375/health-web:latest
     container_name: flask-app
-    image: bakhtawar375/health-web
-    command: python app.py
     volumes:
       - .:/app
     ports:
