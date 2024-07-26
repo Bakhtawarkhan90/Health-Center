@@ -50,5 +50,5 @@ echo "Checking the status of Docker containers..."
 docker compose ps
 
 echo "The Health-Center project has been set up and is running."
-echo "You can access the web application at $(curl ident.me):8000
+echo "You can access the web application at $(curl ident.me):8000"
 echo "Please log out and log back in for the Docker group membership to take effect."
